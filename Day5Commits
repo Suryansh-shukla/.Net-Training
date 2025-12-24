@@ -1,0 +1,51 @@
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# On branch main
+# Your branch is up to date with 'origin/main'.
+#
+# Changes to be committed:
+#	new file:   day6demo/Book.cs
+#	modified:   day6demo/Program.cs
+#	new file:   day6demo/bin/Debug/net10.0/day6demo.deps.json
+#	new file:   day6demo/bin/Debug/net10.0/day6demo.dll
+#	new file:   day6demo/bin/Debug/net10.0/day6demo.exe
+#	new file:   day6demo/bin/Debug/net10.0/day6demo.pdb
+#	new file:   day6demo/bin/Debug/net10.0/day6demo.runtimeconfig.json
+#	new file:   day6demo/obj/Debug/net10.0/.NETCoreApp,Version=v10.0.AssemblyAttributes.cs
+#	new file:   day6demo/obj/Debug/net10.0/apphost.exe
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.AssemblyInfo.cs
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.AssemblyInfoInputs.cache
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.GeneratedMSBuildEditorConfig.editorconfig
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.GlobalUsings.g.cs
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.assets.cache
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.csproj.CoreCompileInputs.cache
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.csproj.FileListAbsolute.txt
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.dll
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.genruntimeconfig.cache
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.pdb
+#	new file:   day6demo/obj/Debug/net10.0/day6demo.sourcelink.json
+#	new file:   day6demo/obj/Debug/net10.0/ref/day6demo.dll
+#	new file:   day6demo/obj/Debug/net10.0/refint/day6demo.dll
+#	modified:   hello/DemoAppl/bin/Debug/net10.0/DemoAppl.dll
+#	modified:   hello/DemoAppl/bin/Debug/net10.0/DemoAppl.exe
+#	modified:   hello/DemoAppl/bin/Debug/net10.0/DemoAppl.pdb
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.AssemblyInfo.cs
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.AssemblyInfoInputs.cache
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.GeneratedMSBuildEditorConfig.editorconfig
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.assets.cache
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.csproj.FileListAbsolute.txt
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.dll
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.genruntimeconfig.cache
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.pdb
+#	new file:   hello/DemoAppl/obj/Debug/net10.0/DemoAppl.sourcelink.json
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/apphost.exe
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/ref/DemoAppl.dll
+#	modified:   hello/DemoAppl/obj/Debug/net10.0/refint/DemoAppl.dll
+#	modified:   hello/DemoAppl/obj/DemoAppl.csproj.nuget.dgspec.json
+#	modified:   hello/DemoAppl/obj/project.nuget.cache
+#
+# Changes not staged for commit:
+#	modified:   Day4OOPDemo (untracked content)
+#
