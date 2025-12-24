@@ -12,3 +12,4 @@ C:\Users\ssury\OneDrive\Desktop\Capegemini\hello\DemoAppl\obj\Debug\net10.0\refi
 C:\Users\ssury\OneDrive\Desktop\Capegemini\hello\DemoAppl\obj\Debug\net10.0\DemoAppl.pdb
 C:\Users\ssury\OneDrive\Desktop\Capegemini\hello\DemoAppl\obj\Debug\net10.0\DemoAppl.genruntimeconfig.cache
 C:\Users\ssury\OneDrive\Desktop\Capegemini\hello\DemoAppl\obj\Debug\net10.0\ref\DemoAppl.dll
+c:\Users\ssury\OneDrive\Desktop\Capegemini\hello\DemoAppl\obj\Debug\net10.0\DemoAppl.sourcelink.json

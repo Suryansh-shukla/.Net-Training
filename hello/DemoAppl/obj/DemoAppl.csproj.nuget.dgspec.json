@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj": {}
+    "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj": {
+    "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj",
+        "projectUniqueName": "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj",
         "projectName": "DemoAppl",
-        "projectPath": "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj",
+        "projectPath": "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj",
         "packagesPath": "C:\\Users\\ssury\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\obj\\",
+        "outputPath": "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
