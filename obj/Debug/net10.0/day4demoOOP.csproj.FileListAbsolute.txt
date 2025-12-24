@@ -1,0 +1,4 @@
+c:\Users\ssury\OneDrive\Desktop\Capegemini\day4demoOOP\obj\Debug\net10.0\day4demoOOP.GeneratedMSBuildEditorConfig.editorconfig
+c:\Users\ssury\OneDrive\Desktop\Capegemini\day4demoOOP\obj\Debug\net10.0\day4demoOOP.AssemblyInfoInputs.cache
+c:\Users\ssury\OneDrive\Desktop\Capegemini\day4demoOOP\obj\Debug\net10.0\day4demoOOP.AssemblyInfo.cs
+c:\Users\ssury\OneDrive\Desktop\Capegemini\day4demoOOP\obj\Debug\net10.0\day4demoOOP.csproj.CoreCompileInputs.cache
