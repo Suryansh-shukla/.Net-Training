@@ -1,0 +1,15 @@
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\bin\Debug\net10.0\day6demo3.exe
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\bin\Debug\net10.0\day6demo3.deps.json
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\bin\Debug\net10.0\day6demo3.runtimeconfig.json
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\bin\Debug\net10.0\day6demo3.dll
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\bin\Debug\net10.0\day6demo3.pdb
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\day6demo3.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\day6demo3.AssemblyInfoInputs.cache
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\day6demo3.AssemblyInfo.cs
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\day6demo3.csproj.CoreCompileInputs.cache
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\day6demo3.sourcelink.json
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\day6demo3.dll
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\refint\day6demo3.dll
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\day6demo3.pdb
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\day6demo3.genruntimeconfig.cache
+C:\Users\ssury\OneDrive\Desktop\Capegemini\Day6demo3\obj\Debug\net10.0\ref\day6demo3.dll
