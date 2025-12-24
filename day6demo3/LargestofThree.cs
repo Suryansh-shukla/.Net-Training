@@ -17,4 +17,15 @@ public class LargestOfThree
             return num3;
         }
     }
+    public static void Main(){
+            LargestOfThree largestOfThree=new LargestOfThree();
+            Console.WriteLine("Enter first number:");
+            largestOfThree.num1=int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter second number:");
+            largestOfThree.num2=int.Parse(Console.ReadLine());
+            Console.WriteLine("Enter third number:");
+            largestOfThree.num3=int.Parse(Console.ReadLine());
+            int largest=largestOfThree.FindLargest();
+            Console.WriteLine($"Largest Number: {largest}");
+        }
 }

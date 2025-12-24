@@ -10,4 +10,12 @@ public class FeetToCentimeter
         centimeter = feet * 30.48;
         return centimeter;
     }
+    public static void Main()
+        {
+            FeetToCentimeter feetToCentimeter = new FeetToCentimeter();
+            Console.WriteLine("Enter the value in feet:");
+            feetToCentimeter.feet = int.Parse(Console.ReadLine());
+            double centimeter = feetToCentimeter.ConvertFeetToCentimeter();
+            Console.WriteLine($"Value in centimeters: {Math.Round(centimeter,MidpointRounding.AwayFromZero)}");
+        }
 }

@@ -18,4 +18,11 @@ public class HeightCategory
             return "Tall";
         }
     }
+    public static void Main(){
+            HeightCategory heightCategory = new HeightCategory();
+            Console.WriteLine("Enter Height in CM:");
+            heightCategory.heightCM=int.Parse(Console.ReadLine());
+            string category=heightCategory.GetHeightCategory();
+            Console.WriteLine($"Height Category: {category}");
+        }
 }
