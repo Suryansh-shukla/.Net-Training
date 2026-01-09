@@ -6,7 +6,7 @@ namespace EventDelegations
 {
      class ProductRepo:IRepo<Product>
     {
-        public void Add()
+        public void Add(Product product)
         {
 
         }
