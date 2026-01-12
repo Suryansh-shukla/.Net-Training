@@ -6,10 +6,88 @@ using System.Threading.Tasks;
 
 namespace LINQ_Console_App
 {
-    internal class Program
+    class Program
     {
+        public static void LinqToObjectDemo()
+        {
+            int[] numArray = { 10, 2, 12, 34, 45, 65, 23, 66, 48, 8, 88, 27 };
+            string[] nameArray = { "Alok", "Rajat", "Sunil", "Priya", "Ayush", "Harshita", "Suryansh", "Himanshu", "Mahi", "Naina", "Bachu", "Chotu", "Mahesh" };
+            //Normal Case
+            //foreach (var item in numArray)
+            //{
+            //    if(item% 2 == 0)
+            //    {
+            //        Console.WriteLine(item);
+            //    }
+            //}
+            //LINQ Case
+            var result= from data in numArray
+                        where data % 2 == 0
+                        select data;
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
+            Console.WriteLine("Enter name to Search : ");
+            string dataToSearch = Console.ReadLine();
+            var resultname=from data in nameArray
+                           orderby data
+                       select data;
+            var resultname1=from data in nameArray
+                       where data==dataToSearch
+                       select data;
+            foreach (var item in resultname)
+            {
+                Console.WriteLine(item); 
+            }
+            foreach (var item in resultname1)
+            {
+                Console.WriteLine(item); 
+            }
+            var resultname2=nameArray.Where(data=>data== dataToSearch);
+
+        }
+        public static void LinqToObjectDemoOnCustomType()
+        {
+            List<Customer> custList = new List<Customer>()
+            {
+                new Customer(){CustomerId=101,CustomerName="Alok",City="Pune"},
+                new Customer(){CustomerId=102,CustomerName="Rajat",City="Mumbai"},
+                new Customer(){CustomerId=103,CustomerName="Sunil",City="Pune"},
+                new Customer(){CustomerId=104,CustomerName="Priya",City="Chennai"},
+                new Customer(){CustomerId=105,CustomerName="Ayush",City="Delhi"},
+                new Customer(){CustomerId=106,CustomerName="Amit",City="Pune"},
+                new Customer(){CustomerId=107,CustomerName="Karan",City="Mumbai"},
+                new Customer(){CustomerId=108,CustomerName="Rohit",City="Pune"},
+                new Customer(){CustomerId=109,CustomerName="Neha",City="Chennai"},
+                new Customer(){CustomerId=110,CustomerName="Vikas",City="Delhi"},
+                new Customer(){CustomerId=111,CustomerName="Sandeep",City="Pune"},
+                new Customer(){CustomerId=112,CustomerName="Suryansh",City="Mumbai"},
+                new Customer(){CustomerId=113,CustomerName="Ankit",City="Pune"},
+                new Customer(){CustomerId=114,CustomerName="Pooja",City="Chennai"},
+                new Customer(){CustomerId=115,CustomerName="Rahul",City="Delhi"},
+            };
+            var data = new
+            {
+                OrderID = 1100,
+                OrderDate = "12/01/2026",
+                TotalAmount = 14000
+            };
+            var result = custList.Where(cust => cust.City == "Mumbai");
+            var result1 = custList.FindAll(cust => cust.City == "Delhi");
+            foreach (var item in result1)
+            {
+                Console.WriteLine($"{item}");
+            }
+            foreach (var item in result)
+            {
+                Console.WriteLine($"{item.CustomerId}\t{item.CustomerName}\t{item.City}");
+            }
+        }
         static void Main(string[] args)
         {
+            LinqToObjectDemo();
+            LinqToObjectDemoOnCustomType();
         }
     }
 }
