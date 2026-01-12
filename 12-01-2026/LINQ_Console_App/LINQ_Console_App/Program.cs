@@ -133,7 +133,9 @@ namespace LINQ_Console_App
             StudentRepo sRepo=new StudentRepo();
             List<Student> tempList = sRepo.GetAllStudents();
             var total = tempList.Select(s => s.Fees).Sum();
+            var totalMaleFees = tempList.Where(s => s.Gender == "Male").Select(s => s.Fees).Sum();
             Console.WriteLine("Total Fees Paid by all Students :"+ total);
+            Console.WriteLine("Total Male Students Fees Paid:"+ totalMaleFees);
         }
     
     }
