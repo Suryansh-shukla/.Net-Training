@@ -84,10 +84,57 @@ namespace LINQ_Console_App
                 Console.WriteLine($"{item.CustomerId}\t{item.CustomerName}\t{item.City}");
             }
         }
+        //public static void LambdaLookUp()
+        //{
+        //    int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+        //    var query = numbers.ToLookup(i % 2 == 0);
+        //    foreach (IGrouping<int, int> group in query)
+        //    {
+        //        Console.WriteLine("Key :{0}", group.Key);
+        //        foreach (int number in group)
+        //        {
+        //            Console.WriteLine(number);
+        //        }
+        //    }
+
+        //}
+        public static void LambdaLookUp()
+        {
+            StudentRepo sRepo=new StudentRepo();
+            List<Student> tempList = sRepo.GetAllStudents();
+            var query = tempList.ToLookup(s=>s.Gender=="Male");
+            foreach (IGrouping<bool, Student> group in query)
+            {
+                //Console.WriteLine("Key :{0}", group.Key);
+                int totFees = 0;
+                if (group.Key == true)
+                {
+                    Console.WriteLine("Male Student Details Below");
+                }
+                else
+                {
+                    Console.WriteLine("Female Student Details Below");
+                }
+                foreach (Student std in group)
+                {
+                    Console.WriteLine($"{std.Name}");
+                    totFees+=std.Fees;
+                }
+                Console.WriteLine("Total Fee Paid :");
+            }
+            //var maleFeesPaid = tempList.ToLookup(s => s.Gender == "Male").Sum();
+
+        }
         static void Main(string[] args)
         {
-            LinqToObjectDemo();
-            LinqToObjectDemoOnCustomType();
+            //    LinqToObjectDemo();
+            //    LinqToObjectDemoOnCustomType();
+            //LambdaLookUp();
+            StudentRepo sRepo=new StudentRepo();
+            List<Student> tempList = sRepo.GetAllStudents();
+            var total = tempList.Select(s => s.Fees).Sum();
+            Console.WriteLine("Total Fees Paid by all Students :"+ total);
         }
+    
     }
 }
