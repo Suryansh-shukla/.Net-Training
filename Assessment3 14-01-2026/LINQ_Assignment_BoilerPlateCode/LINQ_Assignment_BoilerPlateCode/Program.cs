@@ -18,9 +18,54 @@ namespace LINQ_Assignment_BoilerPlateCode
             // SAMPLE DATA
             // =======================
             var employees = EmployeeRepo.SeedEmployees();
-            var projects = ProjectRepo. SeedProjects();
+            var projects = ProjectRepo.SeedProjects();
 
-            Console.WriteLine("LINQ Scenario Boilerplate Loaded");
+            Console.WriteLine("LINQ Scenario Boilerplate Loaded"); 
+            Console.WriteLine("\nHigh Earning Employees (>60000):");
+            foreach (var e in GetHighEarningEmployees(employees))
+                Console.WriteLine($"{e.Name} - {e.Salary}");
+
+            Console.WriteLine("\nEmployee Names:");
+            GetEmployeeNames(employees)
+                .ForEach(name => Console.WriteLine(name));
+
+            Console.WriteLine($"\nHas HR Employees: {HasHREmployees(employees)}");
+
+            Console.WriteLine("\nDepartment Wise Count:");
+            foreach (var d in GetDepartmentWiseCount(employees))
+                Console.WriteLine($"{d.Department} : {d.Count}");
+
+            var highestPaid = GetHighestPaidEmployee(employees);
+            Console.WriteLine($"\nHighest Paid Employee: {highestPaid?.Name} - {highestPaid?.Salary}");
+
+            Console.WriteLine("\nEmployees Sorted By Salary & Name:");
+            foreach (var e in SortEmployeesBySalaryAndName(employees))
+                Console.WriteLine($"{e.Name} - {e.Salary}");
+
+            Console.WriteLine("\nEmployee Project Mapping:");
+            foreach (var ep in GetEmployeeProjectMappings(employees, projects))
+                Console.WriteLine($"{ep.EmployeeName} -> {ep.ProjectName}");
+
+            Console.WriteLine("\nUnassigned Employees:");
+            foreach (var e in GetUnassignedEmployees(employees, projects))
+                Console.WriteLine(e.Name);
+
+            Console.WriteLine("\nUnique Skills:");
+            GetAllUniqueSkills(employees)
+                .ForEach(skill => Console.WriteLine(skill));
+
+            Console.WriteLine("\nTop Earners By Department:");
+            foreach (var dept in GetTopEarnersByDepartment(employees))
+            {
+                Console.WriteLine(dept.Department);
+                foreach (var e in dept.TopEmployees)
+                    Console.WriteLine($"  {e.Name} - {e.Salary}");
+            }
+
+            Console.WriteLine("\nPaginated Employees (Page 1):");
+            foreach (var e in GetEmployeesByPage(employees, 1))
+                Console.WriteLine(e.Name);
+
         }
 
         // =====================================================
