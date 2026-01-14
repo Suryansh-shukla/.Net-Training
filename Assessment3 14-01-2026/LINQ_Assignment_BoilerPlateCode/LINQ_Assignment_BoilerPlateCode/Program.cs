@@ -31,22 +31,28 @@ namespace LINQ_Assignment_BoilerPlateCode
         static List<Employee> GetHighEarningEmployees(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-
-            throw new NotImplementedException();
+            return employees
+                .Where(e => e.Salary > 60000)
+                .ToList();
+            // throw new NotImplementedException();
         }
 
         // TODO 1.2: Get list of employee names only
         static List<string> GetEmployeeNames(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            return employees
+                .Select(e => e.Name)
+                .ToList();
+            // throw new NotImplementedException();
         }
 
         // TODO 1.3: Check if any employee belongs to HR department
         static bool HasHREmployees(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            return employees.Any(e => e.Department == "HR");
+            // throw new NotImplementedException();
         }
 
         // =====================================================
@@ -57,21 +63,28 @@ namespace LINQ_Assignment_BoilerPlateCode
         static List<DepartmentCount> GetDepartmentWiseCount(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            return employees.GroupBy(e=>e.Department).Select(g=> new DepartmentCount
+            {
+                Department = g.Key,
+                Count = g.Count()
+            }).ToList();
+            // throw new NotImplementedException();
         }
 
         // TODO 2.2: Find the highest paid employee
         static Employee GetHighestPaidEmployee(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            return employees.OrderByDescending(e=>e.Salary).First();
+            // throw new NotImplementedException();
         }
 
         // TODO 2.3: Sort employees by Salary (DESC), then Name (ASC)
         static List<Employee> SortEmployeesBySalaryAndName(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            return employees.OrderByDescending(e=>e.Salary).ThenBy(e=>e.Name).ToList();
+            // throw new NotImplementedException();
         }
 
         // =====================================================
@@ -79,28 +92,33 @@ namespace LINQ_Assignment_BoilerPlateCode
         // =====================================================
 
         // TODO 3.1: Join employees with projects
-        static List<EmployeeProject> GetEmployeeProjectMappings(
-            List<Employee> employees,
-            List<Project> projects)
+        static List<EmployeeProject> GetEmployeeProjectMappings(List<Employee> employees,List<Project> projects)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            var query = from e in employees join p in projects on e.Id equals p.EmployeeId select new EmployeeProject
+            {
+                EmployeeName =e.Name,
+                ProjectName =p.ProjectName
+            };
+            return (query).ToList();
+            //throw new NotImplementedException();
         }
 
         // TODO 3.2: Find employees who are NOT assigned to any project
-        static List<Employee> GetUnassignedEmployees(
-            List<Employee> employees,
-            List<Project> projects)
+        static List<Employee> GetUnassignedEmployees(List<Employee> employees,List<Project> projects)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            var assignedEmpIds= projects.Select(p=>p.EmployeeId).Distinct();
+            return employees.Where(e=>!assignedEmpIds.Contains(e.Id)).ToList();
+            // throw new NotImplementedException();
         }
 
         // TODO 3.3: Get all unique skills across the organization
         static List<string> GetAllUniqueSkills(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            return employees.SelectMany(e=>e.Skills).Distinct().ToList();
+            // throw new NotImplementedException();
         }
 
         // =====================================================
@@ -108,28 +126,32 @@ namespace LINQ_Assignment_BoilerPlateCode
         // =====================================================
 
         // TODO 4.1: Get top 3 highest-paid employees per department
-        static List<DepartmentTopEmployees> GetTopEarnersByDepartment(
-            List<Employee> employees)
+        static List<DepartmentTopEmployees> GetTopEarnersByDepartment(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            var query = employees.GroupBy(e=>e.Department).Select(g=> new DepartmentTopEmployees
+            {
+                Department = g.Key,
+                TopEmployees = g.OrderByDescending(e=>e.Salary).Take(3).ToList()
+            });
+            return query.ToList();
+            // throw new NotImplementedException();
         }
 
         // TODO 4.2: Remove duplicate employees based on Id
         static List<Employee> RemoveDuplicateEmployees(List<Employee> employees)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            return employees.GroupBy(e=>e.Id).Select(g=>g.First()).ToList();
+            // throw new NotImplementedException();
         }
 
         // TODO 4.3: Implement pagination
-        static List<Employee> GetEmployeesByPage(
-            List<Employee> employees,
-            int pageNumber,
-            int pageSize = 5)
+        static List<Employee> GetEmployeesByPage(List<Employee> employees,int pageNumber,int pageSize = 5)
         {
             // TODO: Write LINQ query here
-            throw new NotImplementedException();
+            return employees.Skip((pageNumber - 1) * pageSize).Take(pageSize).ToList();
+            // throw new NotImplementedException();
         }
 
 
