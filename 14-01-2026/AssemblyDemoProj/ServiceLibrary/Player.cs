@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace ServiceLibrary
 {
-    class Player
+    namespace ServiceLibrary
     {
-        public int PlayerId;
-        public string PlayerName;
-        public string[] Skills;
-        
+        public class Player
+        {
+            public int PlayerId;
+            public string PlayerName;
+            public List<string> Skills = new List<string>();
+        }
     }
 }
