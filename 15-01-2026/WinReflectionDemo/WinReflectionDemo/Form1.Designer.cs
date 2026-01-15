@@ -40,6 +40,7 @@
             // listBox1
             // 
             this.listBox1.FormattingEnabled = true;
+            this.listBox1.HorizontalScrollbar = true;
             this.listBox1.ItemHeight = 20;
             this.listBox1.Location = new System.Drawing.Point(92, 112);
             this.listBox1.Name = "listBox1";
@@ -49,6 +50,7 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
+            this.listBox2.HorizontalScrollbar = true;
             this.listBox2.ItemHeight = 20;
             this.listBox2.Location = new System.Drawing.Point(367, 112);
             this.listBox2.Name = "listBox2";
@@ -63,7 +65,6 @@
             this.label1.Size = new System.Drawing.Size(81, 20);
             this.label1.TabIndex = 2;
             this.label1.Text = "Properties";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
