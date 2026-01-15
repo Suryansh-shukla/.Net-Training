@@ -1,0 +1,6 @@
+﻿Build started...
+1>------ Build started: Project: CSharpNewFeatures, Configuration: Debug Any CPU ------
+1>F:\.Net Framework and C#\Demos\CSharpNewFeatures\CSharpNewFeatures\CSharpNewFeatures\AwaitInCatch.cs(46,28,46,40): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+1>F:\.Net Framework and C#\Demos\CSharpNewFeatures\CSharpNewFeatures\CSharpNewFeatures\AwaitInCatch.cs(50,28,50,39): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread.
+1>  CSharpNewFeatures -> F:\.Net Framework and C#\Demos\CSharpNewFeatures\CSharpNewFeatures\CSharpNewFeatures\bin\Debug\CSharpNewFeatures.exe
+========== Build: 1 succeeded, 0 failed, 0 up-to-date, 0 skipped ==========
