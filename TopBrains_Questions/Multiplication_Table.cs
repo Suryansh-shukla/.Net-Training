@@ -9,9 +9,9 @@ class Program
         if(upto>0)
         {
            for(int i=1;i<=upto;i++)
-        {
-            row[i-1]=n*i;
-        }
+            {
+                row[i-1]=n*i;
+            }
         }
         foreach(int num in row)
         {
