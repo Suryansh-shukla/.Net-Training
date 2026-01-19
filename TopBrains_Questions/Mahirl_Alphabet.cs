@@ -17,7 +17,7 @@ class Program
             secondWordChars.Add(c);
         }
 
-        // Step 1: Remove common consonants
+        // Task 1: Remove common consonants
         StringBuilder filtered = new StringBuilder();
         foreach (char c in firstWord)
         {
@@ -38,7 +38,7 @@ class Program
             }
         }
 
-        // Step 2: Remove consecutive duplicate characters (case-insensitive)
+        // Task 2: Remove consecutive duplicate characters (case-insensitive)
         StringBuilder result = new StringBuilder();
         char? previous = null;
 
