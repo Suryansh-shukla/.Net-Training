@@ -118,3 +118,11 @@ set @numResult =@num1 +@num2;
 print @numResult;
 
 print 'The Sum of '+cast(@num1 as varchar)+' and '+cast(@num2 as varchar)+' is '+cast(@numResult as varchar);
+
+use LPU_db
+
+create Nonclustered index idx_StudentInfo_Name on dbo.StudentInfo(Name);
+
+sp_help studentinfo
+
+												
