@@ -9,4 +9,5 @@ namespace ConArchDemo
     internal class StudentBL
     {
     }
+
 }
