@@ -142,7 +142,7 @@
             // 
             // btnShowAllProduct
             // 
-            this.btnShowAllProduct.Location = new System.Drawing.Point(147, 344);
+            this.btnShowAllProduct.Location = new System.Drawing.Point(155, 344);
             this.btnShowAllProduct.Name = "btnShowAllProduct";
             this.btnShowAllProduct.Size = new System.Drawing.Size(148, 28);
             this.btnShowAllProduct.TabIndex = 11;
@@ -152,7 +152,7 @@
             // 
             // btnSearchById
             // 
-            this.btnSearchById.Location = new System.Drawing.Point(331, 344);
+            this.btnSearchById.Location = new System.Drawing.Point(326, 344);
             this.btnSearchById.Name = "btnSearchById";
             this.btnSearchById.Size = new System.Drawing.Size(122, 28);
             this.btnSearchById.TabIndex = 12;
