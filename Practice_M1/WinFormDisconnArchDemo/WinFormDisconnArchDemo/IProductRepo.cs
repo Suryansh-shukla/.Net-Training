@@ -6,8 +6,13 @@ using System.Threading.Tasks;
 
 namespace WinFormDisconnArchDemo
 {
-    public interface IProductRepo<Product> : IRepo<Product>
+    public interface IProductRepo : IRepo<Product>
     {
+        List<Product> ShowAllProductByCategory(int catID);
+        List<Product> ShowProductByPriceAsc();
+        List<Product> ShowProductByPriceDesc();
+        List<Product> GetTop3CostlyProduct();
+        List<Product> GetTop3BudgetProduct();
 
     }
 }

@@ -41,5 +41,11 @@ namespace WinFormDisconnArchDemo
         {
 
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            ProductUtility prodObj=new ProductUtility();
+            dataGridView1.DataSource=prodObj.ShowAllData();
+        }
     }
 }

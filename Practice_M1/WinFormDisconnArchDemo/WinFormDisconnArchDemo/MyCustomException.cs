@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace WinFormDisconnArchDemo
 {
-    public class MyCustomException
+    public class MyCustomException:Exception
     {
+        public MyCustomException():base() { }
+        public MyCustomException(string errorMsg):base(errorMsg)
+        {
+
+        }
     }
 }
