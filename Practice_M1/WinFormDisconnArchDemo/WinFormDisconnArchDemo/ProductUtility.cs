@@ -22,7 +22,10 @@ namespace WinFormDisconnArchDemo
         }
         public bool AddData(Product data)
         {
-            throw new NotImplementedException();
+            if(data == null) { return false; }
+            
+            return false;
+            //throw new NotImplementedException();
         }
 
         public bool DeleteData(int id)
