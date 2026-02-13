@@ -114,7 +114,7 @@
             // 
             this.btnAddProduct.Location = new System.Drawing.Point(115, 310);
             this.btnAddProduct.Name = "btnAddProduct";
-            this.btnAddProduct.Size = new System.Drawing.Size(111, 28);
+            this.btnAddProduct.Size = new System.Drawing.Size(120, 39);
             this.btnAddProduct.TabIndex = 8;
             this.btnAddProduct.Text = "Add Product";
             this.btnAddProduct.UseVisualStyleBackColor = true;
@@ -124,7 +124,7 @@
             // 
             this.btnUpdateProduct.Location = new System.Drawing.Point(241, 310);
             this.btnUpdateProduct.Name = "btnUpdateProduct";
-            this.btnUpdateProduct.Size = new System.Drawing.Size(130, 28);
+            this.btnUpdateProduct.Size = new System.Drawing.Size(136, 39);
             this.btnUpdateProduct.TabIndex = 9;
             this.btnUpdateProduct.Text = "Update Product";
             this.btnUpdateProduct.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             // 
             this.btnDeleteProduct.Location = new System.Drawing.Point(383, 310);
             this.btnDeleteProduct.Name = "btnDeleteProduct";
-            this.btnDeleteProduct.Size = new System.Drawing.Size(132, 28);
+            this.btnDeleteProduct.Size = new System.Drawing.Size(135, 39);
             this.btnDeleteProduct.TabIndex = 10;
             this.btnDeleteProduct.Text = "Delete Product";
             this.btnDeleteProduct.UseVisualStyleBackColor = true;
@@ -142,9 +142,9 @@
             // 
             // btnShowAllProduct
             // 
-            this.btnShowAllProduct.Location = new System.Drawing.Point(155, 344);
+            this.btnShowAllProduct.Location = new System.Drawing.Point(155, 350);
             this.btnShowAllProduct.Name = "btnShowAllProduct";
-            this.btnShowAllProduct.Size = new System.Drawing.Size(148, 28);
+            this.btnShowAllProduct.Size = new System.Drawing.Size(148, 37);
             this.btnShowAllProduct.TabIndex = 11;
             this.btnShowAllProduct.Text = "Show All Product";
             this.btnShowAllProduct.UseVisualStyleBackColor = true;
@@ -152,9 +152,9 @@
             // 
             // btnSearchById
             // 
-            this.btnSearchById.Location = new System.Drawing.Point(326, 344);
+            this.btnSearchById.Location = new System.Drawing.Point(326, 350);
             this.btnSearchById.Name = "btnSearchById";
-            this.btnSearchById.Size = new System.Drawing.Size(122, 28);
+            this.btnSearchById.Size = new System.Drawing.Size(133, 37);
             this.btnSearchById.TabIndex = 12;
             this.btnSearchById.Text = "Search By ID";
             this.btnSearchById.UseVisualStyleBackColor = true;

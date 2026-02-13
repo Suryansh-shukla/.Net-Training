@@ -17,7 +17,7 @@ namespace WinFormDisconnArchDemo
         public ProductUtility()
         {
             con = new SqlConnection();
-            con.ConnectionString = "Server=.;Integrated Security=true;Database=LPU_Db;TrustServerCertificate=true";
+            con.ConnectionString = "Server=.\\sqlexpress;Integrated Security=true;Database=LPU_Db;TrustServerCertificate=true";
             
         }
         public bool AddData(Product data)
@@ -60,8 +60,8 @@ namespace WinFormDisconnArchDemo
                     Product p = new Product()
                     {
                         ProdId = Convert.ToInt32(dr["ProdId"]),
-                        ProdName = dr["ProdName"].ToString(),
-                        Price = Convert.ToSingle(dr["Price"]),
+                        ProdName = dr["Name"].ToString(),
+                        Price = Convert.ToInt32(dr["Price"]),
                         Desc = dr["Desc"].ToString()
                     };
                     prodList.Add(p);
