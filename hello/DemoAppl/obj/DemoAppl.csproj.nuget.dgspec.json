@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj": {}
+    "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj": {}
   },
   "projects": {
-    "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj": {
+    "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj",
+        "projectUniqueName": "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj",
         "projectName": "DemoAppl",
-        "projectPath": "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj",
+        "projectPath": "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\DemoAppl.csproj",
         "packagesPath": "C:\\Users\\ssury\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\obj\\",
+        "outputPath": "C:\\Users\\ssury\\OneDrive\\Desktop\\Capegemini\\hello\\DemoAppl\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -26,6 +26,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -44,7 +45,7 @@
           "auditLevel": "low",
           "auditMode": "all"
         },
-        "SdkAnalysisLevel": "10.0.100"
+        "SdkAnalysisLevel": "10.0.200"
       },
       "frameworks": {
         "net10.0": {
@@ -65,7 +66,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.101/PortableRuntimeIdentifierGraph.json",
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\10.0.200-preview.0.26103.119/PortableRuntimeIdentifierGraph.json",
           "packagesToPrune": {
             "Microsoft.CSharp": "(,4.7.32767]",
             "Microsoft.VisualBasic": "(,10.4.32767]",
