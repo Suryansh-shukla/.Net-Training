@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Book.cs" />
     <Compile Include="BookUtility.cs" />
+    <Compile Include="InvalidBookDataException.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
