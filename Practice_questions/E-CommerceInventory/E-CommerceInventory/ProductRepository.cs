@@ -17,7 +17,7 @@ namespace E_CommerceInventory
     {
         private List<T> _products = new List<T>();
 
-        private void AddProduct(T product)
+        public void AddProduct(T product)
         {
             _products.Add(product);
         }

@@ -1,0 +1,32 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+static void Main()
+{
+string s=Console.ReadLine();
+RunLengthEncoding(s);
+}
+void RunLengthEncoding(string s)
+{
+HashSet<char,int> counter=new HashSet<char,int>;
+char[] arr=s.ToCharArray() char[s.Length];
+foreach(var value in arr)
+{
+if(counter.Key.Contains(value))
+{
+counter++;
+}
+else
+{
+counter.Add(value,1);
+}
+}
+foreach(var item in counter)
+{
+Console.Write($"{item.Key}{item.Value}");
+}
+}
+
+}
