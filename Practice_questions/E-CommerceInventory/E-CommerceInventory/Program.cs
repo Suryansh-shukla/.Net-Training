@@ -10,6 +10,7 @@ namespace E_CommerceInventory
     {
         static void Main(string[] args)
         {
+
         }
     }
 }
