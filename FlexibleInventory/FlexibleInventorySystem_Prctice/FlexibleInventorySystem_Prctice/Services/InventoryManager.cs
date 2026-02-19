@@ -56,7 +56,24 @@ namespace FlexibleInventorySystem_Practice.Services
 
         public string GenerateExpiryReport(int daysThreshold)
         {
-            throw new NotImplementedException();
+            GroceryProduct GProd=new GroceryProduct();
+            int days = GProd.DaysUntilExpiry();
+            if (daysThreshold > 0)
+            {
+                if (days > daysThreshold)
+                {
+                    return "Not Expiring Soon";
+                }
+                else
+                {
+                    return $"Expiring in {days} days";
+                }
+            }
+            else
+            {
+                return "Invalid Threshold";
+            }
+            //throw new NotImplementedException();
         }
 
         public string GenerateInventoryReport()
@@ -80,9 +97,34 @@ namespace FlexibleInventorySystem_Practice.Services
 
         public string GenerateValueReport()
         {
-            List<Product> products = new List<Product>();
-            
-            throw new NotImplementedException();
+            if (_products != null || _products.Count == 0) return "No Product Available to Display";
+            StringBuilder sb = new StringBuilder();
+            var MostValuable = _products.OrderByDescending(p => p.CalculateValue()).FirstOrDefault();
+            var LeastValuable = _products.OrderBy(p => p.CalculateValue()).FirstOrDefault();
+            var AverageValue = _products.Average(p => p.Price);
+            var medianPrices = _products.Select(p => p.Price).OrderBy(p => p).ToList();
+            decimal medianPrice;
+            int count = medianPrices.Count;
+            if(count%2==0)
+            {
+                medianPrice = medianPrices[count/2-1]+medianPrices[count/2]/2;
+            }
+            else
+            {
+                medianPrice = medianPrices[count/2];
+            }
+            var AboveAverage = _products.OrderBy(p => p.Price>_products.Average(p=>p.Price));
+            sb.AppendLine($"Most Valuable Product: {MostValuable.Name} ({MostValuable.Price:C})");
+            sb.AppendLine($"Least Valuable Product: {LeastValuable.Name} ({LeastValuable.Price:C})");
+            sb.AppendLine($"Average Price: {AverageValue:C}");
+            sb.AppendLine($"Median Price: {medianPrice:C}");
+            sb.AppendLine();
+            sb.AppendLine("Products Above Average Price:");
+            foreach (var item in AboveAverage)
+            {
+                sb.AppendLine($"- {item.Name} ({item.Price:C})");   
+            }
+            return sb.ToString();
         }
 
         public List<Product> GetLowStockProducts(int threshold)
@@ -138,7 +180,30 @@ namespace FlexibleInventorySystem_Practice.Services
             return true;
             //throw new NotImplementedException();
         }
+        public void ApplyCategoryDiscount(string category, decimal discountPercentage)
+        {
+            // TODO: Apply discount to all products in category
+            foreach (Product product in _products)
+            {
+                if (product.Category == category)
+                {
+                    product.Price -= product.Price * discountPercentage / 100;
+                }
+            }
+            //throw new NotImplementedException();
+        }
+        public int GetTotalProductCount()
+        {
+            // TODO: Return total number of products
+            return _products.Count;
+            //throw new NotImplementedException();
+        }
+        public IEnumerable<string> GetCategories()
+        {
+            // TODO: Return distinct categories
+            return _products.Select(p => p.Category).Distinct();
+            //throw new NotImplementedException();
+        }
 
-        
-    }    
+    }
 }

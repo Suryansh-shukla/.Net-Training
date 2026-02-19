@@ -39,6 +39,23 @@ namespace FlexibleInventorySystem_Practice
                         RemoveProductMenu();
                         break;
                     // TODO: Implement other cases
+
+                    case "3":
+                        // Update Quantity
+                        UpdateQuantity();
+                        break;
+                    case "4":
+                        FindProduct();
+                        break;
+                    case "5":
+                        ShowAllProducts();
+                        break;
+                    case "6":
+                        GenerateReports();
+                        break;
+                    case "7":
+                        checkLowStock();
+                        break;
                     case "8":
                         return;
                     default:
@@ -46,6 +63,31 @@ namespace FlexibleInventorySystem_Practice
                         break;
                 }
             }
+        }
+
+        private static void checkLowStock()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void GenerateReports()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void ShowAllProducts()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void FindProduct()
+        {
+            throw new NotImplementedException();
+        }
+
+        private static void UpdateQuantity()
+        {
+            throw new NotImplementedException();
         }
 
         static void DisplayMenu()
@@ -60,6 +102,29 @@ namespace FlexibleInventorySystem_Practice
             // Ask user for product type
             // Collect appropriate properties
             // Add to inventory
+            Console.WriteLine("Select product type to add:\n1. Electronic\n2. Groceries\n3. Clothing");
+            string choice = Console.ReadLine();
+            if(choice == "1")
+            {
+                Product product = new ElectronicProduct();
+                Console.WriteLine("Enter product ID:");
+                product.Id = Console.ReadLine();
+                Console.WriteLine("Enter product name:");
+                product.Name = Console.ReadLine();
+
+
+            }
+            else if(choice == "2")
+            {
+            }
+            else if(choice == "3")
+            {
+            }
+            else
+            {
+                Console.WriteLine("Invalid option. Returning to main menu.");
+            }
+
             throw new NotImplementedException();
         }
 

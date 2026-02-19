@@ -18,10 +18,10 @@ namespace FlexibleInventorySystem_Practice.Models
         // - WarrantyMonths (int)
         // - Voltage (string)
         // - IsRefurbished (bool)
-        public string Brand { get; set; }
+        public string? Brand { get; set; }
         public int WarrantyMonths { get; set; }
-        public string Voltage { get; set; }
-        public bool IsRefurbished { get; set; }
+        public string? Voltage { get; set; }
+        //public bool IsRefurbished { get; set; }
         /// <summary>
         /// TODO: Override GetProductDetails to include electronic specifics
         /// Format: "Brand: {Brand}, Model: {Name}, Warranty: {WarrantyMonths} months"
