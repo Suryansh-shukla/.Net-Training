@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Dummy - Index</h2>
+<ul type="square">
+    @foreach (var item in ViewBag.Names)
+    {
+        <li>@item</li>
+    }
+</ul>
