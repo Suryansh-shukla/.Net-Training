@@ -14,6 +14,18 @@ if (!app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+app.Use(async (context,next)=>
+{
+    await context.Response.WriteAsync("Middleware 1 Called.\n");
+    await next.Invoke();
+
+});
+app.Run(async (context) =>
+{
+    await context.Response.WriteAsync("Middleware 2  Called.");
+    //await next.Invoke();
+    
+});
 app.UseRouting();
 
 app.UseAuthorization();
