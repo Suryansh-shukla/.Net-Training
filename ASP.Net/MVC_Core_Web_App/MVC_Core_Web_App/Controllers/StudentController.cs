@@ -6,28 +6,28 @@ namespace MVC_Core_Web_App.Controllers
 {
     public class StudentController : Controller
     {
-        StudentRepo srepo = null ;
+        StudentRepo srepo = null;
         public StudentController()
         {
-            srepo=new StudentRepo();
+            srepo = new StudentRepo();
         }
         [HttpGet]
         public string[] GetAllcities()
         {
-            return new string[] { "Pune", "Mumbai", "Delhi", "Bangalore","Chennai","Hyderabase" };
+            return new string[] { "Pune", "Mumbai", "Delhi", "Bangalore", "Chennai", "Hyderabase" };
         }
         // GET: StudentController
         public ActionResult Index()
         {
-            List<Student> sList=srepo.ShowAllData();
+            List<Student> sList = srepo.ShowAllData();
             return View(sList);
         }
 
         // GET: StudentController/Details/5
-        
+
         public ActionResult Details(int id)
         {
-            Student s=srepo.ShowDetailsByID(id);
+            Student s = srepo.ShowDetailsByID(id);
             return View(s);
         }
 
@@ -41,6 +41,30 @@ namespace MVC_Core_Web_App.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Student s1)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    srepo.AddData(s1);
+                }
+                return RedirectToAction(nameof(Index));
+            }
+            catch
+            {
+                return View();
+            }
+        }
+        //GET:StudentController/Dummy
+        public ActionResult Dummy()
+        {
+            return View();
+        }
+        //POST: StudentController/Dummy
+        [HttpPost]
+        [Route("Dummy/")]
+        [ValidateAntiForgeryToken]
+        public ActionResult Dummy(Student s1)
         {
             try
             {
