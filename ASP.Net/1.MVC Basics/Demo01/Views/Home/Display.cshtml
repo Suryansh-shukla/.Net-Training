@@ -1,0 +1,11 @@
+﻿@model Demo01.Models.Employee
+
+@{
+    ViewBag.Title = "Display";
+}
+
+<h2>Employee Information</h2>
+
+<b>ID   : </b> @Model.EmployeeId <br />
+<b>Name : </b> @Model.EmployeeName.ToUpper() <br />
+

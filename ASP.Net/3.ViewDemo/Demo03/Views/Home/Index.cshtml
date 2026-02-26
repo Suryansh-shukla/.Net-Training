@@ -1,0 +1,67 @@
+﻿@using Demo03.Models
+@model List<Trainer>
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Index</title>
+</head>
+<body>
+    <div>
+      
+
+     
+
+        @foreach (var trainer in ViewBag.trainers)
+        {
+            <h3>
+                Name : @trainer.TrainerName<br />
+                Technology : @Html.Raw(trainer.Technology)
+            </h3>
+            
+        }
+        <hr />
+        <h2>
+            Using Partial View</h2>
+        @foreach (var trainer in Model)
+        {
+             @Html.Partial("pvTrainer", trainer);
+
+        }
+    </div>
+</body>
+</html>
+<!--
+Razor is the view engine for MVC
+C# and HTML can Work together
+HTML helpers works in Razors like Webforms
+It provides support for Layout view and partial view
+
+ASP.NET MVC offers us three options ViewData, VieBag and TempData for passing data from controller to view and in next request. 
+ViewData and ViewBag are almost similar and TempData performs additional responsibility. 
+
+Similarities between ViewBag & ViewData :
+
+Helps to maintain data when you move from controller to view.
+Used to pass data from controller to corresponding view.
+Short life means value becomes null when redirection occurs. This is because their goal is to provide a way to communicate 
+between controllers and views. It’s a communication mechanism within the server call.
+
+Difference between ViewBag & ViewData:
+
+ViewData is a dictionary of objects that is derived from ViewDataDictionary class and accessible using strings as keys.
+ViewBag is a dynamic property that takes advantage of the new dynamic features in C# 4.0.
+ViewData requires typecasting for complex data type and check for null values to avoid error.
+ViewBag doesn’t require typecasting for complex data type.
+
+TempData:
+
+TempData is also a dictionary derived from TempDataDictionary class and stored in short lives session and it is a string 
+key and object value. The difference is that the life cycle of the object. TempData keep the information for the time of an 
+HTTP Request.  It helps to maintain data when you move from one controller to other controller or from one action to 
+other action.It  helps to maintain data between those redirects. It internally uses session variables. 
+It requires typecasting for complex data type and check for null values to avoid error. generally used to store only one 
+time messages like error messages, validation messages.
+-->

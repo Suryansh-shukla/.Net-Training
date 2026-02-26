@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+
+
+<!--
+    MVC 4 does not serve minified version in debug mode.
+    Script getting downloaded needs to wait till the other dowwnload get completed because every browser makes a finite number 
+    of connection to a server. IE 8 can have maximum 2 connections for a single server.
+
+    To optimize MVC4 web application we have System.Web.Optimization Package(Empty Project does not refer this assembly)
+
+    Script files and style files can be bundled to the globalBundleTable object using ScriptBundle and StyleBundle respectively
+
+     bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
+                        "~/Scripts/jquery.unobtrusive*", //  (* denotes wild card) 
+                        "~/Scripts/jquery.validate*"));
+
+    in the above snippet /bundles/jqueryval is the virtual path(Path which is not actually exists like /bundles/jqueryval) to reach the bundle. 
+    this virtual path contains the contents of all the files(concatenated) in the order included as a single file so that it reduces the number of
+    downloads.
+
+    Provide virtual Path name for css files as the same name(/Content/css) where they resides to avoid relative reference 
+
+    For Optimization 
+    ----------------
+    add <add namespace="System.Web.Optimization"/> under namespace section or add the namespace in _layout.cshtml with using keyword
+    To bundle the group of  scripts in to single file add the line BundleTable.EnableOptimizations = true; in budleConfig.cs or  change <compilation debug="false" targetFramework="4.5" /> in web.config file
+-->

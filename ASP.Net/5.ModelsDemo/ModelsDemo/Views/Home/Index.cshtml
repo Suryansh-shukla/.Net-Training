@@ -1,0 +1,42 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Binding Collection</h2>
+
+
+<form method="get" action="@Url.Action("PrintListNumbers")">
+    <input type="text" name="numbers[0]" value="1" />
+    <input type="text" name="numbers[1]" value="2" />
+    <input type="text" name="numbers[2]" value="3" />
+    <input type="submit" value="Submit" />
+</form>
+
+<h2>Binding model</h2>
+
+<form method="get" action="@Url.Action("PrintTrainer")">
+    TrainerId : 
+    <input type="text" name="TrainerId" value="1" />
+    <br />
+    TrainerName : 
+    <input type="text" name="TrainerName" value="Ganesh" />
+    <br />
+    Technology ID(It will be Ignored): 
+    <input type="text" name="Subject.TechnologyId" value="1" />
+    <br />
+    Technology (It will be Ignored): 
+    <input type="text" name="Subject.TechnologyName" value="Dotnet" />
+    <br />
+    Designation Id: 
+    <input type="text" name="Level.DesignationId" value="1" />
+    <br />
+    Designation: 
+    <input type="text" name="Level.DesignationName" value="Manager" />
+    <br />
+
+    <input type="submit" value="Submit" />
+</form>
+<br />
+<div>
+    @Html.ActionLink("Data Annotation Demo", "AddEmployee")
+</div>

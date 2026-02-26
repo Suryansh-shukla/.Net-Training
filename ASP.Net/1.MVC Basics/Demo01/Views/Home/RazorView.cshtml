@@ -1,0 +1,22 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Razor View</title>
+</head>
+<body>
+    <div>
+        @{
+            for (int counter = 1; counter <= 5; counter++)
+            {
+            <div>@counter</div>
+            }
+        }
+    </div>
+</body>
+</html>

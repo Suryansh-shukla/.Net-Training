@@ -1,0 +1,22 @@
+﻿@{
+    Layout = "../Shared/_Layout.cshtml";
+}
+
+@section title{
+    <h1>title from layout demo</h1>
+}
+<div>
+LayoutDemo Page
+<!--
+Cntrl K,C to Comment and Cntrl K,U to Uncomment
+-->
+</div>
+
+ <h1>@System.Web.HttpContext.Current.Session["TestSession"].ToString()</h1>
+<h2>@Session["uname"]</h2>
+
+<!-- 
+Never reference a Session inside your view/master page
+Minimize your useage of Session. MVC provides TempData obj for this, which is basically a Session 
+that lives for a single trip to the server.
+-->

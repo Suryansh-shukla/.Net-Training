@@ -1,0 +1,16 @@
+﻿@model Demo02.Models.Guest
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@using (Ajax.BeginForm( new AjaxOptions { HttpMethod = "GET", 
+    InsertionMode = InsertionMode.Replace, UpdateTargetId = "trainersList" })) 
+{ 
+    <text>Guest Name :</text> 
+    <input type="text" id="txtSearch" name="criteria" />
+    <input type ="submit" value="search" />
+}
+<br />
+<table id="trainersList"></table>
