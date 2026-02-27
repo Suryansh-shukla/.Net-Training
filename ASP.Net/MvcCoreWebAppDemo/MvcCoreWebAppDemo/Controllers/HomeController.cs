@@ -1,9 +1,8 @@
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
-using MVCCoreWebAppDemo1.Models;
 using System.Diagnostics;
+using Microsoft.AspNetCore.Mvc;
+using MvcCoreWebAppDemo.Models;
 
-namespace MVCCoreWebAppDemo1.Controllers
+namespace MvcCoreWebAppDemo.Controllers
 {
     public class HomeController : Controller
     {
@@ -11,11 +10,7 @@ namespace MVCCoreWebAppDemo1.Controllers
         {
             return View();
         }
-        [Authorize(Roles ="Admin")]//Filter
-        public ActionResult SomeSecret()
-        {
-            return View();
-        }
+
         public IActionResult Privacy()
         {
             return View();
