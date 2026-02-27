@@ -15,6 +15,6 @@ namespace EFCoreMVCWebDEmo.Models
         [Required(ErrorMessage = "Department Id reference is Mandatory")]
         public int DeptId { get; set; }
         //Navigation Property
-        public virtual Department? Department { get; set; }
+        //public virtual Department? Department { get; set; }
     }
 }

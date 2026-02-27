@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Components.Server.ProtectedBrowserStorage;
 using Microsoft.EntityFrameworkCore;
+using EFCoreMVCWebDEmo.Models;
 
 namespace EFCoreMVCWebDEmo.Models
 {
@@ -15,6 +16,7 @@ namespace EFCoreMVCWebDEmo.Models
         }
         public DbSet<Department> Departments { get; set; }
         public DbSet<Employee> Employees { get; set; }
+        public DbSet<EFCoreMVCWebDEmo.Models.EmployeeVM> EmployeeVM { get; set; } = default!;   
 
     }
 }
