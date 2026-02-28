@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Application/Application.csproj" />
+  <Project Path="ConsoleApp/ConsoleApp.csproj" />
+  <Project Path="Core/Core.csproj" />
+  <Project Path="Infrastructure/Infrastructure.csproj" />
+  <Project Path="MVCApp/MVCApp.csproj" />
+  <Project Path="WebAPI/WebAPI.csproj" />
+</Solution>
