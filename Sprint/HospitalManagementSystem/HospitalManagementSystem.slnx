@@ -1,8 +1,0 @@
-<Solution>
-  <Project Path="../../../../../../OneDrive/Desktop/Capegemini/Sprint/HospitalManagementSystem/Application/Application.csproj" />
-  <Project Path="../../../../../../OneDrive/Desktop/Capegemini/Sprint/HospitalManagementSystem/ConsoleApp/ConsoleApp.csproj" />
-  <Project Path="../../../../../../OneDrive/Desktop/Capegemini/Sprint/HospitalManagementSystem/Core/Core.csproj" />
-  <Project Path="../../../../../../OneDrive/Desktop/Capegemini/Sprint/HospitalManagementSystem/Infrastructure/Infrastructure.csproj" />
-  <Project Path="../../../../../../OneDrive/Desktop/Capegemini/Sprint/HospitalManagementSystem/MVCApp/MVCApp.csproj" />
-  <Project Path="../../../../../../OneDrive/Desktop/Capegemini/Sprint/HospitalManagementSystem/WebAPI/WebAPI.csproj" />
-</Solution>

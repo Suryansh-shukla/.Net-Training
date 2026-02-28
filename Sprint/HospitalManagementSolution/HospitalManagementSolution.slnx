@@ -1,0 +1,8 @@
+<Solution>
+  <Project Path="Application/Application.csproj" Id="93dedf51-dd5a-4e2c-941d-1d3a867dcb01" />
+  <Project Path="ConsoleApp/ConsoleApp.csproj" Id="ef9bc98f-cd6c-42df-b615-1433746f203a" />
+  <Project Path="Core/Core.csproj" Id="bc8c2424-6edf-40e6-ba6e-f126ca0c8395" />
+  <Project Path="Infrastructure/Infrastructure.csproj" Id="64afdfad-126e-41f4-8a08-14e910b91747" />
+  <Project Path="MVCApp/MVCApp.csproj" />
+  <Project Path="WebAPI/WebAPI.csproj" />
+</Solution>
