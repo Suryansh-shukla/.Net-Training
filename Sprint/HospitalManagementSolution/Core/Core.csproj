@@ -32,6 +32,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -42,12 +43,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Class1.cs" />
+    <Compile Include="Entities\Doctor.cs" />
+    <Compile Include="Entities\Patient.cs" />
+    <Compile Include="Exceptions\DatabaseConnectionException.cs" />
+    <Compile Include="Exceptions\DoctorNotFoundException.cs" />
+    <Compile Include="Exceptions\InvalidDoctorException.cs" />
+    <Compile Include="Exceptions\PatientNotFoundException.cs" />
+    <Compile Include="Interfaces\IDoctorService.cs" />
+    <Compile Include="Interfaces\IPatientService.cs" />
+    <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Exceptions\" />
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
