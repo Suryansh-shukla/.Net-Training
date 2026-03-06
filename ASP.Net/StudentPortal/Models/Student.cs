@@ -13,7 +13,7 @@ public partial class Student
 
     public string? Phone { get; set; }
 
-    public string Status { get; set; } = null!;
+    public string Status { get; set; } = "Active";
 
     public DateOnly JoinDate { get; set; }
 

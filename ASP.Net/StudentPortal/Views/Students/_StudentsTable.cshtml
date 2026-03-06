@@ -1,0 +1,43 @@
+﻿@model IEnumerable<StudentPortal.Models.Student>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Status</th>
+            <th>Join Date</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.FullName</td>
+                <td>@item.Email</td>
+                <td>@item.Phone</td>
+                <td>
+                    @if (item.Status == "Active")
+                    {
+                        <span class="badge bg-success">Active</span>
+                    }
+                    else if (item.Status == "Inactive")
+                    {
+                        <span class="badge bg-warning">Inactive</span>
+                    }
+                    else
+                    {
+                        <span class="badge bg-danger">Suspended</span>
+                    }
+                </td>
+                <td>@item.JoinDate.ToShortDateString()</td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

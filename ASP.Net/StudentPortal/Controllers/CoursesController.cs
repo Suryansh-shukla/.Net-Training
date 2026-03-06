@@ -1,4 +1,4 @@
-﻿using System;
+﻿/*using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -151,6 +151,145 @@ namespace StudentPortal.Controllers
         private bool CourseExists(int id)
         {
             return _context.Courses.Any(e => e.CourseId == id);
+        }
+    }
+}
+*/
+
+
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using StudentPortal.Models;
+
+namespace StudentPortal.Controllers
+{
+    public class CoursesController : Controller
+    {
+        private readonly StudentPortalDbContext _context;
+
+        public CoursesController(StudentPortalDbContext context)
+        {
+            _context = context;
+        }
+
+        // GET: Courses
+        public async Task<IActionResult> Index(string searchTitle, string level, bool? isActive)
+        {
+            var courses = _context.Courses.AsQueryable();
+
+            if (!string.IsNullOrEmpty(searchTitle))
+                courses = courses.Where(c => c.Title.Contains(searchTitle));
+
+            if (!string.IsNullOrEmpty(level))
+                courses = courses.Where(c => c.Level == level);
+
+            if (isActive.HasValue)
+                courses = courses.Where(c => c.IsActive == isActive.Value);
+
+            ViewBag.LevelList = new List<string>
+            {
+                "Beginner",
+                "Intermediate",
+                "Advanced"
+            };
+
+            ViewBag.SearchTitle = searchTitle;
+            ViewBag.SelectedLevel = level;
+            ViewBag.SelectedStatus = isActive;
+
+            return View(await courses.ToListAsync());
+        }
+
+        // GET: Courses/Create
+        public IActionResult Create()
+        {
+            ViewBag.LevelList = new List<string>
+            {
+                "Beginner",
+                "Intermediate",
+                "Advanced"
+            };
+
+            return View();
+        }
+
+        // POST: Courses/Create
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create(Course course)
+        {
+            if (ModelState.IsValid)
+            {
+                course.CreatedAt = DateTime.Now;
+
+                _context.Add(course);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(course);
+        }
+
+        // GET: Courses/Edit/5
+        public async Task<IActionResult> Edit(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var course = await _context.Courses.FindAsync(id);
+            if (course == null) return NotFound();
+
+            ViewBag.LevelList = new List<string>
+            {
+                "Beginner",
+                "Intermediate",
+                "Advanced"
+            };
+
+            return View(course);
+        }
+
+        // POST: Courses/Edit/5
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Course course)
+        {
+            if (id != course.CourseId) return NotFound();
+
+            if (ModelState.IsValid)
+            {
+                _context.Update(course);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+
+            return View(course);
+        }
+
+        // GET: Courses/Delete/5
+        public async Task<IActionResult> Delete(int? id)
+        {
+            if (id == null) return NotFound();
+
+            var course = await _context.Courses
+                .FirstOrDefaultAsync(m => m.CourseId == id);
+
+            if (course == null) return NotFound();
+
+            return View(course);
+        }
+
+        // POST: Courses/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var course = await _context.Courses.FindAsync(id);
+
+            if (course != null)
+                _context.Courses.Remove(course);
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
     }
 }

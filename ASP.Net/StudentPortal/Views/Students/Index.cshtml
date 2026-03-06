@@ -1,65 +1,95 @@
 ﻿@model IEnumerable<StudentPortal.Models.Student>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Students";
 }
 
-<h1>Index</h1>
+<h2>Students</h2>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.FullName)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Email)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Phone)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Status)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.JoinDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CreatedAt)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FullName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Email)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Phone)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Status)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.JoinDate)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CreatedAt)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.StudentId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.StudentId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.StudentId">Delete</a>
-            </td>
-        </tr>
+<div class="mb-3 d-flex gap-2">
+
+    <input type="text"
+           id="searchBox"
+           placeholder="Type to search..."
+           class="form-control"
+           style="width:250px;" />
+
+    <select id="statusFilter"
+            class="form-control"
+            style="width:200px;">
+        <option value="">All Status</option>
+        @foreach (var s in ViewBag.StatusList)
+        {
+            <option value="@s">@s</option>
+        }
+    </select>
+
+</div>
+@if (!Model.Any())
+{
+    <div class="alert alert-warning mt-3">
+        @if (!string.IsNullOrWhiteSpace(Context.Request.Query["q"]))
+        {
+            <span>No students found matching your search.</span>
+        }
+        else
+        {
+            <span>No students available.</span>
+        }
+    </div>
 }
-    </tbody>
-</table>
+else
+{
+    <table class="table mt-3">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.FullName</td>
+                    <td>@item.Email</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+<div id="studentsTable">
+    @await Html.PartialAsync("_StudentsTable", Model)
+</div>
+
+@section Scripts {
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        function loadStudents() {
+
+            var searchName = $("#searchBox").val();
+            var status = $("#statusFilter").val();
+
+            $.ajax({
+                url: '/Students/Index',
+                type: 'GET',
+                data: { searchName: searchName, status: status },
+                success: function (result) {
+                    var tableContent = $(result).find("#studentsTable").html();
+                    $("#studentsTable").html(tableContent);
+                }
+            });
+        }
+
+        $("#searchBox").on("keyup", function () {
+            loadStudents();
+        });
+
+        $("#statusFilter").on("change", function () {
+            loadStudents();
+        });
+    </script>
+
+}
