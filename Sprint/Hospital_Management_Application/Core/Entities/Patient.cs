@@ -12,11 +12,11 @@ namespace Core.Entities
         [Key]
         public int PatientId { get; set; }
         [Required(ErrorMessage = "Mandatory")]
-        public string Name { get; set; }
+        public string Name { get; set; } = string.Empty;
         [Required(ErrorMessage = "Mandatory")]
         public int Age { get; set; }
         [Required(ErrorMessage = "Mandatory")]
-        public string Condition { get; set; }
+        public string Condition { get; set; }= string.Empty;
         [Required(ErrorMessage = "Mandatory")]
         public DateTime AppointmentDate { get; set; }
         [Required(ErrorMessage = "Mandatory")]

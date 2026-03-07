@@ -18,7 +18,12 @@ namespace Infrastructure.Repositories
 
         public void DeletePatient(int Id)
         {
-            _patients.Remove(_patients.Find(p=>p.PatientId==Id));
+            if (_patients == null) return;
+            var patient = _patients.Find(p => p.PatientId == Id);
+            if (patient!=null)
+            {
+                _patients.Remove(patient);
+            }
             //throw new NotImplementedException();
         }
 
@@ -30,9 +35,8 @@ namespace Infrastructure.Repositories
 
         public Patient GetPatientById(int Id)
         {
-            Patient patient = _patients.Find(p => p.PatientId == Id);
-            return patient;
-            throw new NotImplementedException();
+            return _patients.FirstOrDefault(p => p.PatientId == Id);
+            //throw new NotImplementedException();
         }
 
         public void UpdatePatient(int Id, Patient patient)

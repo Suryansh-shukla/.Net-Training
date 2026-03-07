@@ -12,9 +12,9 @@ namespace Core.Entities
         [Key]
         public int DoctorId { get; set; }
         [Required(ErrorMessage = "Mandatory")]
-        public string Name { get; set; }
+        public string Name { get; set; }=string.Empty;
         [Required(ErrorMessage = "Mandatory")]
-        public string Specialization { get; set; }
+        public string Specialization { get; set; }=string.Empty;
         [Required(ErrorMessage = "Mandatory")]
         public decimal ConsultationFee { get; set; }
     }
