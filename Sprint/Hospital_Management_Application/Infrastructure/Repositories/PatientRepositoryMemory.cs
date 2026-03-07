@@ -35,13 +35,15 @@ namespace Infrastructure.Repositories
 
         public Patient GetPatientById(int Id)
         {
-            return _patients.FirstOrDefault(p => p.PatientId == Id);
+            Patient? patient = _patients?.Find(p => p.PatientId == Id);
+            return patient;
             //throw new NotImplementedException();
         }
 
         public void UpdatePatient(int Id, Patient patient)
         {
-            throw new NotImplementedException();
+
+            //throw new NotImplementedException();
         }
     }
 }
