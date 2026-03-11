@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using FirstWebAPIDemo.Models.Repos;
+using Microsoft.AspNetCore.Mvc;
+using FirstWebAPIDemo.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -8,18 +10,25 @@ namespace FirstWebAPIDemo.Controllers
     [ApiController]
     public class StudentController : ControllerBase
     {
+        StudentRepo srepo = null;
+        public StudentController()
+        {
+            srepo=new StudentRepo();
+        }
         // GET: api/<StudentController>
         [HttpGet]
-        public IEnumerable<string> Get()
+        public IEnumerable<Student> Get()
         {
-            return new string[] { "value1", "value2" };
+
+            return srepo.GetAll();
+            //return new string[] { "value1", "value2" };
         }
 
         // GET api/<StudentController>/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public Student Get(int id)
         {
-            return "value";
+            return srepo.Get(id);
         }
 
         // POST api/<StudentController>

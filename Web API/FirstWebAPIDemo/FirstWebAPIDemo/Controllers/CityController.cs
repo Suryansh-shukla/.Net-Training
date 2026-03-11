@@ -23,10 +23,29 @@ namespace FirstWebAPIDemo.Controllers
                 };
             }
         }
-        [Route("Joining Cities")]
+        [Route("JoiningCities")]
+        [HttpGet]
         public List<string> ShowAllCities()
         {
             return cityList;
+        }
+        [Route("GetCityList/{stateName}")]
+        [HttpGet]
+        public List<string> GetCityList(string stateName)
+        {
+            return cityList;
+        }
+
+        [Route("FetchAllCities/{stateID}")]
+        [HttpGet]
+        public List<string> fetchALlCities(int stateID)
+        {
+            return cityList;
+        }
+        [HttpGet]
+        public int AddMe(int num1,int num2)
+        {
+            return num1 + num2;
         }
     }
 }
