@@ -28,24 +28,13 @@ namespace FluentApiLab.Data.Configurations
             builder.Property(e => e.Phone)
                 .IsRequired();
 
-            builder.Property(e => e.SKU)
-                .IsRequired()
-                .HasMaxLength(20)
-                .HasColumnType("varchar(20)");
 
             builder.Property(e => e.DateOfBirth)
                 .IsRequired();
 
-            builder.Property(e => e.RowVersion)
-                .IsRowVersion();
+            builder.Property(e => e.FullName)
+                 .HasMaxLength(50);
 
-            builder.HasIndex(e => e.SKU)
-                .IsUnique();
-
-            builder.HasOne(e => e.Category)
-                .WithMany(e => e.Products)
-                .HasForeignKey(e => e.CategoryId)
-                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
