@@ -1,4 +1,7 @@
-﻿namespace DtoLab.Dtos
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+
+namespace DtoLab.Dtos
 {
 
     public class UserDto
@@ -25,9 +28,14 @@
     // Create/Update DTOs - what the client sends
     public class CreateUserDto
     {
+        [Required]
         public string Username { get; set; } = string.Empty;
+        [EmailAddress]
         public string Email { get; set; } = string.Empty;
+        [Required]
+        [PasswordPropertyText]
         public string Password { get; set; } = string.Empty;  // Client sends password
+        [Required]
         public DateTime DateOfBirth { get; set; }
     }
 
