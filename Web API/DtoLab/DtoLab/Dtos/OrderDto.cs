@@ -1,6 +1,6 @@
 ﻿namespace DtoLab.Dtos
 {
-    public class OrderDto
+    public class OrderDto   
     {
         public int Id { get; set; }
         public DateTime OrderDate { get; set; }
