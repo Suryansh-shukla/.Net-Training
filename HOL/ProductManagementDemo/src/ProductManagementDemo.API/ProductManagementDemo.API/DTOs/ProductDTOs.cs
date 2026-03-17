@@ -29,6 +29,8 @@ namespace ProductManagementDemo.API.DTOs
         public bool IsFeatured { get; set; }
         public double AverageRating { get; set; }
         public int ReviewCount { get; set; }
+
+        public string Sku { get; set; } = string.Empty;
         public string ImageUrl { get; set; } = string.Empty;
         public List<string> Tags { get; set; } = new();
         public Dictionary<string, string> Specifications { get; set; } = new();
@@ -71,8 +73,7 @@ namespace ProductManagementDemo.API.DTOs
         [Required]
         public int CategoryId { get; set; }
         [Required]
-        [RegularExpression(@"^[A-Z0-9-]+$",
-        ErrorMessage = "SKU must be uppercase letters, numbers, and hyphens only")]
+        [RegularExpression(@"^[A-Z0-9-]+$",ErrorMessage = "SKU must be uppercase letters, numbers, and hyphens only")]
         [StringLength(50)]
         public string Sku { get; set; } = string.Empty;
 

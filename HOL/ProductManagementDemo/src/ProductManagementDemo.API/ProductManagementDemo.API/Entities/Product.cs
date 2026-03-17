@@ -16,6 +16,9 @@ namespace ProductManagementDemo.API.Entities
         public bool IsFeatured { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime? UpdatedAt { get; set; }
+        public string Tags { get; set; } = string.Empty;
+        public string Specifications { get; set; } = string.Empty;
+        public string ImageUrl { get; set; } = string.Empty;
 
         // Internal metrics — should NOT appear in public API responses
         public int ViewCount { get; set; }

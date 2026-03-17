@@ -17,12 +17,14 @@ namespace ProductManagementDemo.API.Mapping
                     opt => opt.MapFrom(_ => DateTime.UtcNow))
                 .ForMember(dest => dest.IsActive,
                     opt => opt.MapFrom(_ => true))
-                // Serialize complex types to JSON strings for storage
-                .ForMember(dest => dest.Tags,
-                    opt => opt.MapFrom(src => JsonSerializer.Serialize(src.Tags)))
-                .ForMember(dest => dest.Specifications,
-                    opt => opt.MapFrom(src => JsonSerializer.Serialize(
-                        src.Specifications ?? new())));
+               // Serialize complex types to JSON strings for storage
+               .ForMember(dest => dest.Tags,
+    opt => opt.MapFrom(src =>
+        JsonSerializer.Serialize(src.Tags, (JsonSerializerOptions?)null)))
+
+.ForMember(dest => dest.Specifications,
+    opt => opt.MapFrom(src =>
+        JsonSerializer.Serialize(src.Specifications ?? new(), (JsonSerializerOptions?)null)));
 
             // ── Update DTO → Entity ────────────────────────────────────────
             // Skip null values so unset fields are not overwritten
@@ -32,7 +34,7 @@ namespace ProductManagementDemo.API.Mapping
                 .ForMember(dest => dest.Tags,
                     opt => opt.Condition(src => src.Tags != null))
                 .ForMember(dest => dest.Tags,
-                    opt => opt.MapFrom(src => JsonSerializer.Serialize(src.Tags)))
+                    opt => opt.MapFrom(src => JsonSerializer.Serialize(src.Tags, (JsonSerializerOptions?)null)))
                 .ForAllMembers(opts =>
                     opts.Condition((src, dest, srcMember) => srcMember != null));
         }

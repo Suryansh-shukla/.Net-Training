@@ -1,4 +1,6 @@
-﻿namespace ProductManagementDemo.API.Entities
+﻿using ProductManagementDemo.API.DTOs;
+
+namespace ProductManagementDemo.API.Entities
 {
     public class Inventory
     {
@@ -16,5 +18,6 @@
 
         public virtual ICollection<InventoryTransaction> Transactions { get; set; } = new List<InventoryTransaction>();
 
+        
     }
 }
