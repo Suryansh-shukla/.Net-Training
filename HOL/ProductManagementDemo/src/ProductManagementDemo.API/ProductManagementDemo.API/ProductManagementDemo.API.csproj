@@ -16,8 +16,6 @@
 </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-    <Folder Include="Helpers\Extensions\" />
     <Folder Include="Helpers\QueryObjects\" />
     <Folder Include="Services\Interfaces\" />
     <Folder Include="Services\Implementations\" />
