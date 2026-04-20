@@ -1,3 +1,5 @@
+
+
 :root {
   --text: #6b6375;
   --text-h: #08060d;
@@ -108,4 +110,82 @@ code {
   line-height: 135%;
   padding: 4px 8px;
   background: var(--code-bg);
+}
+/* ================= CSS (PASTE IN index.css) ================= */
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.header {
+  background: var(--accent);
+  color: white;
+  padding: 15px;
+}
+
+.nav {
+  background: var(--accent-bg);
+  padding: 10px;
+}
+
+.middle {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr 1fr;
+  gap: 10px;
+}
+
+.sidebar {
+  background: var(--code-bg);
+  padding: 10px;
+}
+
+.main {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 10px;
+}
+
+.ads {
+  background: var(--accent-bg);
+  padding: 10px;
+}
+
+.widgets {
+  background: var(--social-bg);
+  padding: 10px;
+}
+
+.bottom {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.future {
+  background: var(--code-bg);
+  padding: 10px;
+}
+
+.notifications {
+  background: var(--accent-bg);
+  padding: 10px;
+}
+
+.footer {
+  background: var(--text-h);
+  color: cyan;
+  padding: 10px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .middle {
+    grid-template-columns: 1fr;
+  }
+
+  .bottom {
+    grid-template-columns: 1fr;
+  }
 }
