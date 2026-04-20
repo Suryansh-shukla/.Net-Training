@@ -1,1 +1,117 @@
-r6TO+Q4GLNv0AKfs95ASvmHYd1znuTx3DgBrtnksnyA6ltWTC7XGxLlFTE7eUxIJ
+# ── 14. WarehouseDbContext ────────────────────────────────────────────────────
+mkdir -p "$BASE/src/Warehouse/Warehouse.Infrastructure/Persistence"
+cat > "$BASE/src/Warehouse/Warehouse.Infrastructure/Persistence/WarehouseDbContext.cs" << 'CSEOF'
+using Microsoft.EntityFrameworkCore;
+using Warehouse.Domain.Entities;
+
+namespace Warehouse.Infrastructure.Persistence
+{
+    public class WarehouseDbContext(DbContextOptions<WarehouseDbContext> options)
+        : DbContext(options)
+    {
+        public DbSet<WarehouseEntity>  Warehouses => Set<WarehouseEntity>();
+        public DbSet<WarehouseZone>    Zones      => Set<WarehouseZone>();
+        public DbSet<Bin>              Bins       => Set<Bin>();
+        public DbSet<WarehouseReceipt> Receipts   => Set<WarehouseReceipt>();
+
+        protected override void OnModelCreating(ModelBuilder mb)
+        {
+            mb.Entity<WarehouseEntity>(e =>
+            {
+                e.HasKey(w => w.Id);
+                e.Property(w => w.Name).HasMaxLength(200).IsRequired();
+                e.Property(w => w.AddressLine).HasMaxLength(300).IsRequired();
+                e.Property(w => w.City).HasMaxLength(100).IsRequired();
+                e.Property(w => w.State).HasMaxLength(100).IsRequired();
+                e.Property(w => w.Country).HasMaxLength(100).IsRequired();
+                e.Property(w => w.TotalCapacitySqM).HasPrecision(10, 2);
+                e.Property(w => w.ContactPhone).HasMaxLength(20);
+                e.Property(w => w.ContactEmail).HasMaxLength(256);
+            });
+
+            mb.Entity<WarehouseZone>(e =>
+            {
+                e.HasKey(z => z.Id);
+                e.Property(z => z.Name).HasMaxLength(100).IsRequired();
+                e.HasOne(z => z.Warehouse)
+                 .WithMany(w => w.Zones)
+                 .HasForeignKey(z => z.WarehouseId)
+                 .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            mb.Entity<Bin>(e =>
+            {
+                e.HasKey(b => b.Id);
+                e.HasIndex(b => b.BinCode);
+                e.Property(b => b.BinCode).HasMaxLength(30).IsRequired();
+                e.Property(b => b.MaxWeightKg).HasPrecision(10, 2);
+                e.HasOne(b => b.Zone)
+                 .WithMany(z => z.Bins)
+                 .HasForeignKey(b => b.ZoneId)
+                 .OnDelete(DeleteBehavior.Cascade);
+            });
+
+            mb.Entity<WarehouseReceipt>(e =>
+            {
+                e.HasKey(r => r.Id);
+                e.HasIndex(r => r.ShipmentId);
+                e.Property(r => r.TrackingNumber).HasMaxLength(30).IsRequired();
+                e.Property(r => r.ReceivedByName).HasMaxLength(100).IsRequired();
+                e.Property(r => r.DamageDetails).HasMaxLength(1000);
+                e.Property(r => r.Remarks).HasMaxLength(500);
+                e.HasOne(r => r.Warehouse)
+                 .WithMany(w => w.Receipts)
+                 .HasForeignKey(r => r.WarehouseId)
+                 .OnDelete(DeleteBehavior.Restrict);
+            });
+        }
+    }
+}
+CSEOF
+
+cat > "$BASE/src/Warehouse/Warehouse.Infrastructure/Persistence/WarehouseDbContextFactory.cs" << 'CSEOF'
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Design;
+
+namespace Warehouse.Infrastructure.Persistence
+{
+    public class WarehouseDbContextFactory : IDesignTimeDbContextFactory<WarehouseDbContext>
+    {
+        public WarehouseDbContext CreateDbContext(string[] args)
+        {
+            var opts = new DbContextOptionsBuilder<WarehouseDbContext>();
+            opts.UseSqlServer(
+                "Server=localhost,1433;Database=CMS_WarehouseDB;" +
+                "User Id=sa;Password=CMS_Password@2026!;TrustServerCertificate=True;");
+            return new WarehouseDbContext(opts.Options);
+        }
+    }
+}
+CSEOF
+
+# Fix Warehouse.Infrastructure.csproj
+cat > "$BASE/src/Warehouse/Warehouse.Infrastructure/Warehouse.Infrastructure.csproj" << 'CSEOF'
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="MassTransit" Version="8.3.6" />
+    <PackageReference Include="MassTransit.RabbitMQ" Version="8.3.6" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.8" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.8">
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+      <PrivateAssets>all</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="8.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Warehouse.Application\Warehouse.Application.csproj" />
+    <ProjectReference Include="..\Warehouse.Domain\Warehouse.Domain.csproj" />
+  </ItemGroup>
+</Project>
+CSEOF
+echo "Warehouse done"
