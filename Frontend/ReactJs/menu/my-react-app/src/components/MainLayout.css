@@ -1,0 +1,17 @@
+.main-layout {
+  flex: 1;
+  padding: 2rem;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .main-layout {
+    padding: 1rem;
+  }
+}
