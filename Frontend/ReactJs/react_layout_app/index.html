@@ -34,18 +34,289 @@
         max-width: 680px;
         line-height: 1.6;
       }
+
+      .fallback-shell {
+        min-height: 100vh;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+      }
+
+      .fallback-top,
+      .fallback-bottom {
+        background: #0f172a;
+        color: #ffffff;
+        padding: 18px 24px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+        flex-wrap: wrap;
+      }
+
+      .fallback-bottom {
+        background: #1e293b;
+      }
+
+      .fallback-brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .fallback-logo {
+        width: 42px;
+        height: 42px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #60a5fa, #2563eb);
+        font-weight: 700;
+      }
+
+      .fallback-nav,
+      .fallback-links {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+      }
+
+      .fallback-nav a,
+      .fallback-links a {
+        color: #e2e8f0;
+        text-decoration: none;
+      }
+
+      .fallback-hero {
+        background: linear-gradient(135deg, #1d4ed8, #2563eb, #60a5fa);
+        color: white;
+        padding: 42px 24px;
+      }
+
+      .fallback-hero h1 {
+        margin: 0 0 10px;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+      }
+
+      .fallback-hero p {
+        margin: 0;
+        max-width: 900px;
+        color: #eef4ff;
+        line-height: 1.7;
+      }
+
+      .fallback-layout {
+        width: min(1220px, 94%);
+        margin: 26px auto;
+        display: grid;
+        grid-template-columns: 260px 1fr 280px;
+        gap: 22px;
+      }
+
+      .fallback-card {
+        background: #ffffff;
+        border: 1px solid #dbe7f3;
+        border-radius: 18px;
+        box-shadow: 0 10px 28px rgba(37, 99, 235, 0.08);
+        padding: 22px;
+      }
+
+      .fallback-section-tag {
+        display: inline-block;
+        padding: 6px 12px;
+        border-radius: 999px;
+        background: #dbeafe;
+        color: #1d4ed8;
+        font-size: 0.75rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+      }
+
+      .fallback-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+
+      .fallback-list li + li {
+        margin-top: 10px;
+      }
+
+      .fallback-list a {
+        display: block;
+        text-decoration: none;
+        padding: 12px 14px;
+        border-radius: 12px;
+        color: #1d4ed8;
+        background: #f8fbff;
+        border: 1px solid #dbe7f3;
+      }
+
+      .fallback-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        gap: 16px;
+        margin: 20px 0;
+      }
+
+      .fallback-mini {
+        background: #f8fbff;
+        border: 1px solid #dbe7f3;
+        border-radius: 16px;
+        padding: 18px;
+      }
+
+      .fallback-code pre {
+        margin: 0;
+        background: #0f172a;
+        color: #e5efff;
+        padding: 16px;
+        border-radius: 14px;
+        overflow: auto;
+      }
+
+      .fallback-right {
+        display: grid;
+        gap: 12px;
+      }
+
+      .fallback-ad {
+        border: 1px solid #dbe7f3;
+        border-radius: 14px;
+        padding: 14px;
+        background: #f8fbff;
+        font-weight: 600;
+      }
+
+      @media (max-width: 1024px) {
+        .fallback-layout {
+          grid-template-columns: 240px 1fr;
+        }
+
+        .fallback-right {
+          grid-column: 1 / -1;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .fallback-top,
+        .fallback-bottom {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+
+        .fallback-layout {
+          grid-template-columns: 1fr;
+        }
+      }
     </style>
   </head>
   <body>
     <div id="root">
-      <div class="app-fallback">
-        <div>
-          <h1>ItTechGenie Layout App</h1>
+      <div class="fallback-shell">
+        <header class="fallback-top">
+          <div class="fallback-brand">
+            <span class="fallback-logo">IT</span>
+            <div>
+              <div style="font-size: 1.2rem; font-weight: 700;">ItTechGenie</div>
+              <div style="font-size: 0.85rem; color: #cbd5e1;">Learn • Practice • Grow</div>
+            </div>
+          </div>
+          <nav class="fallback-nav">
+            <a href="#">Home</a>
+            <a href="#">Courses</a>
+            <a href="#">Tutorials</a>
+            <a href="#">Contact</a>
+          </nav>
+        </header>
+
+        <section class="fallback-hero">
+          <h1>Tutorial Website Layout Demo</h1>
           <p>
-            The React app is starting. If this message stays visible, the
-            JavaScript bundle is not loading in the browser.
+            This page shows the intended tutorial layout even when the React
+            bundle is not running in the browser.
           </p>
-        </div>
+        </section>
+
+        <main class="fallback-layout">
+          <aside class="fallback-card">
+            <h2>Tutorial Topics</h2>
+            <ul class="fallback-list">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">HTML</a></li>
+              <li><a href="#">CSS</a></li>
+              <li><a href="#">JavaScript</a></li>
+              <li><a href="#">React</a></li>
+              <li><a href="#">Azure</a></li>
+              <li><a href="#">DevOps</a></li>
+            </ul>
+          </aside>
+
+          <section class="fallback-card">
+            <div class="fallback-section-tag">Center Content</div>
+            <h2>Welcome to ItTechGenie</h2>
+            <p>
+              This center section is the most important area of the page. It
+              should contain the tutorial explanation, code examples, diagrams,
+              interview questions, MCQs, and project notes.
+            </p>
+
+            <div class="fallback-grid">
+              <section class="fallback-mini">
+                <h3>Why this layout is useful</h3>
+                <ul>
+                  <li>Top area builds brand identity</li>
+                  <li>Left side helps with topic navigation</li>
+                  <li>Center area focuses on tutorial content</li>
+                  <li>Right side is perfect for ads or promotions</li>
+                </ul>
+              </section>
+
+              <section class="fallback-mini">
+                <h3>Suggested content in center area</h3>
+                <ul>
+                  <li>Concept explanation</li>
+                  <li>Step-by-step examples</li>
+                  <li>Code snippets</li>
+                  <li>Interview questions and MCQs</li>
+                </ul>
+              </section>
+            </div>
+
+            <section class="fallback-mini fallback-code">
+              <h3>Suggested HTML structure</h3>
+              <pre>&lt;header&gt;Top Menu&lt;/header&gt;
+&lt;div class="main-layout"&gt;
+  &lt;aside&gt;Left Menu&lt;/aside&gt;
+  &lt;main&gt;Center Content&lt;/main&gt;
+  &lt;aside&gt;Right Advertisement&lt;/aside&gt;
+&lt;/div&gt;
+&lt;footer&gt;Bottom Menu&lt;/footer&gt;</pre>
+            </section>
+          </section>
+
+          <aside class="fallback-card fallback-right">
+            <div class="fallback-section-tag">Advertisement</div>
+            <h2>ItTechGenie Advertisement</h2>
+            <p>
+              Keep the ad section visible but not distracting. It should
+              support learning, not disturb the reading experience.
+            </p>
+
+            <div class="fallback-ad">Join our React Course</div>
+            <div class="fallback-ad">Learn Azure with Real Projects</div>
+            <div class="fallback-ad">Corporate Training Available</div>
+            <div class="fallback-ad">Interview Question Banks</div>
+          </aside>
+        </main>
+
+        <footer class="fallback-bottom">
+          <div>© 2026 ItTechGenie</div>
+          <div class="fallback-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Privacy Policy</a>
+          </div>
+        </footer>
       </div>
     </div>
     <noscript>
